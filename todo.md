@@ -1,4 +1,4 @@
-# LeetCode topics study order
+# LeetCode recommended topics study order
 
 - String
 - Two pointers

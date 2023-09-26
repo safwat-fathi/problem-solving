@@ -6,8 +6,13 @@
 //       console.log(l.includes(s));
 //     })
 //   )
+
+import { validWords } from "./turing-challenges/valid-words";
+
 // );
-const s = "cb";
-const k = ["cd", "bd", "cccb", "bcc", "bcdcb"];
+const s = "ssa";
+const k = ["ads", "sss", "svb", "sasssa", "s"];
 const nonDuplicated = (s: string) => console.log(...new Set("ccb"));
-nonDuplicated(s);
+// nonDuplicated(s);
+
+console.log(validWords(s, k));

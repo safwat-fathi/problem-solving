@@ -1,1 +1,3 @@
-A set of coding challenges solved by me on leetcode platform and Turing.
+# Problem solving training
+
+A set of coding challenges solved by me on LeetCode platform and Turing.
