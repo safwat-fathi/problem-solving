@@ -1,18 +1,9 @@
-// console.log(
-//   "cb".split("").forEach(s =>
-//     "bcd".split("").forEach(l => {
-//       console.log("s:", s);
-//       console.log("l:", l);
-//       console.log(l.includes(s));
-//     })
-//   )
+import { reArrangeString } from "./turing-challenges/re-arrange-string";
 
-import { validWords } from "./turing-challenges/valid-words";
+const str1 = "z3b1a2";
+const str2 = "q56";
+const str3 = "abc12";
 
-// );
-const s = "ssa";
-const k = ["ads", "sss", "svb", "sasssa", "s"];
-const nonDuplicated = (s: string) => console.log(...new Set("ccb"));
-// nonDuplicated(s);
+// console.log(str2.split("").sort());
 
-console.log(validWords(s, k));
+console.log(reArrangeString(str1));

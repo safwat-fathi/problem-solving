@@ -17,3 +17,41 @@
 // * Constraints:
 // * • 1 <= str.length <= 500
 // * • str consists of only letters and/or numbers.
+
+export const reArrangeString = (s: string) => {
+  const strSorted = s.split("").sort();
+  const nums = [];
+  const letters = [];
+  const combinedChars = [];
+  let index = 0;
+
+  for (let i = 0; i < strSorted.length; i++) {
+    const char = strSorted[i];
+
+    // check if letter
+    if (char.match(/[a-z]/i)) {
+      letters.push(char);
+    }
+
+    // check if number
+    if (char.match(/[0-9]/i)) {
+      nums.push(char);
+    }
+  }
+
+  if (nums.length > letters.length || nums.length === letters.length) {
+    while (index < nums.length) {
+      combinedChars.push(nums[index]);
+      if (index < letters.length) combinedChars.push(letters[index]);
+      index++;
+    }
+  } else {
+    while (index < letters.length) {
+      combinedChars.push(letters[index]);
+      if (index < nums.length) combinedChars.push(nums[index]);
+      index++;
+    }
+  }
+
+  return combinedChars.join("");
+};
