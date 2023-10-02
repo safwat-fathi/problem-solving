@@ -1,4 +1,8 @@
 // Partitioning Into Minimum Number Of Deci Binary Numbers
+// const n0 = "32";
+// const n1 = "82734";
+// const n2 = "27346209830709182346";
+// const n3 = "33";
 // * my solution
 export const minPartitions = (n: string): number => {
   const partitions: number[] = [];
@@ -36,7 +40,7 @@ export const minPartitions = (n: string): number => {
   return partitions.length;
 };
 
-// * not my solution
+// * solution from discussions
 export const minPartitions2 = (n: string): number => {
   let max = 0;
 
