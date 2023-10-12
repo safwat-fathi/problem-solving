@@ -1,18 +1,15 @@
 # LeetCode recommended topics study order
-
+<!-- based on this link https://neetcode.io/roadmap -->
+- Arrays & Hashing
 - String
 - Two pointers
+- Stack/Queue
 - Sliding window
 - Binary search
-- Recursion
+- Linked list
 - Binary tree
 - Backtracking
-- DFS
-- BFS
-- Graph
-- Linked list
 - Sort
 - Trie
-- Stack/Queue
 - Priority queue
 - Dynamic programming
