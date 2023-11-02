@@ -1,8 +1,11 @@
-import { isPalindrome } from "./leetcode/Strings/valid-palindrome";
+import MinStack from "./leetcode/Stacks/StackClass";
 
-const s1 = "race a car";
-const s2 = "A man, a plan, a canal: Panama";
-const s3 = "ab_a";
-const s4 = "ab-a";
+const minStack = new MinStack();
 
-console.log(isPalindrome(s4));
+minStack.push(-1);
+minStack.push(10);
+minStack.push(-2);
+// console.log(minStack.getMin());
+minStack.pop();
+console.log(minStack.getMin());
+console.log(minStack.top());
