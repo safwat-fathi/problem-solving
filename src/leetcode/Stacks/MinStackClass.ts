@@ -3,7 +3,6 @@ class MinStack {
   private _currIndex;
   private _currMinValIndex;
   private _minVal: number | null;
-  // private _minVals: Record<number, number>;
   private _minVals: number[];
 
   constructor() {
@@ -16,8 +15,11 @@ class MinStack {
 
   push(val: number): void {
     // set min value
-    if (!this._minVal) this._minVal = val;
-    if (val < this._minVal!) {
+    if (this._minVal === null) {
+      this._minVal = val;
+      this._minVals[this._currMinValIndex] = this._currIndex;
+      this._currMinValIndex++;
+    } else if (this._minVal !== null && val <= this._minVal) {
       this._minVal = val;
       this._minVals[this._currMinValIndex] = this._currIndex;
       this._currMinValIndex++;
@@ -30,18 +32,18 @@ class MinStack {
   }
 
   pop(): void {
-    const currTempIndex = this._currIndex;
-    const isMinVal =
-      this._stack[this._currMinValIndex] === this._stack[currTempIndex];
+    const idxToPop = this._stack.length - 1;
+    const minValIdx = this._minVals[this._minVals.length - 1];
 
-    if (isMinVal) {
+    if (idxToPop === minValIdx) {
+      // console.log("same index to pop as min val");
       this._minVals.length = this._minVals.length - 1;
       this._currMinValIndex = this._minVals.length - 1;
       this._minVal = this._stack[this._currMinValIndex];
     }
 
     this._stack.length = this._stack.length - 1;
-    this._currIndex = this._stack.length - 1;
+    this._currIndex = idxToPop;
   }
 
   top(): number {
@@ -49,18 +51,6 @@ class MinStack {
   }
 
   getMin(): number | null {
-    console.log("this._stack", this._stack);
-    // console.log("🚀 ~ this._minVals:", this._minVals);
-    const a = this._minVals[this._minVals.length - 1];
-    // console.log("🚀 ~ a:", a);
-    console.log("awdawd", this._stack[a]);
-
-    // console.log("🚀 ~ this._currMinValIndex:", this._currMinValIndex);
-    // console.log(
-    //   "🚀 ~ this._minVals[this._minVals.length - 1]:",
-    //   this._minVals[this._minVals.length - 1]
-    // );
-
     return this._minVal;
   }
 }
