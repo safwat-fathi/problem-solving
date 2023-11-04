@@ -1,29 +1,58 @@
+// const minStack = new MinStack();
+
+// minStack.push(-2);
+// minStack.push(0);
+// minStack.push(-3);
+// console.log(minStack.getMin());
+// minStack.pop();
+// console.log(minStack.top());
+// console.log(minStack.getMin());
+
+// minStack.push(2);
+// minStack.push(0);
+// minStack.push(3);
+// minStack.push(0);
+// console.log(minStack.getMin());
+// minStack.pop();
+// console.log(minStack.getMin());
+// minStack.pop();
+// console.log(minStack.getMin());
+// minStack.pop();
+// console.log(minStack.getMin());
+// console.log(minStack.top());
+
+// minStack.push(2147483646);
+// minStack.push(2147483646);
+// minStack.push(2147483647);
+// console.log(minStack.top());
+// minStack.pop();
+// console.log(minStack.getMin());
+// minStack.pop();
+// minStack.push(2147483647);
+// console.log(minStack.top());
+// console.log(minStack.getMin());
+// minStack.push(-2147483648);
+// console.log(minStack.top());
+// console.log(minStack.getMin());
+// minStack.pop();
+// console.log(minStack.getMin());
 class MinStack {
   private _stack: number[];
   private _currIndex;
-  private _currMinValIndex;
-  private _minVal: number | null;
-  private _minVals: number[];
+  private _minStack: number[];
 
   constructor() {
     this._stack = [];
     this._currIndex = 0;
-    this._currMinValIndex = 0;
-    this._minVal = null;
-    this._minVals = [];
+    this._minStack = [];
   }
 
   push(val: number): void {
+    const lastMinVal = this._minStack[this._minStack.length - 1];
+
     // set min value
-    if (this._minVal === null) {
-      this._minVal = val;
-      this._minVals[this._currMinValIndex] = this._currIndex;
-      this._currMinValIndex++;
-    } else if (this._minVal !== null && val <= this._minVal) {
-      this._minVal = val;
-      this._minVals[this._currMinValIndex] = this._currIndex;
-      this._currMinValIndex++;
-    }
+    if (this._minStack.length === 0) this._minStack.push(val);
+    else this._minStack.push(val <= lastMinVal ? val : lastMinVal);
 
     // add new item to stack
     const tempIndex = this._currIndex;
@@ -32,26 +61,19 @@ class MinStack {
   }
 
   pop(): void {
-    const idxToPop = this._stack.length - 1;
-    const minValIdx = this._minVals[this._minVals.length - 1];
-
-    if (idxToPop === minValIdx) {
-      // console.log("same index to pop as min val");
-      this._minVals.length = this._minVals.length - 1;
-      this._currMinValIndex = this._minVals.length - 1;
-      this._minVal = this._stack[this._currMinValIndex];
-    }
-
     this._stack.length = this._stack.length - 1;
-    this._currIndex = idxToPop;
+    this._minStack.length = this._minStack.length
+      ? this._minStack.length - 1
+      : this._minStack.length;
+    this._currIndex--;
   }
 
   top(): number {
     return this._stack[this._stack.length - 1];
   }
 
-  getMin(): number | null {
-    return this._minVal;
+  getMin(): number {
+    return this._minStack[this._minStack.length - 1];
   }
 }
 
