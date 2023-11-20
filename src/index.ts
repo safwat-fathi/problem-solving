@@ -1,6 +1,6 @@
 // import isValidSudoku from "./leetcode/Arrays/valid-sudoku";
 
-import orderByAge, { TData } from "./turing-challenges/age-ordering";
+import CustomArray from "./turing-challenges/flatten";
 
 // const board1 = [
 //   ["5", "3", ".", ".", "7", ".", ".", ".", "."],
@@ -15,14 +15,3 @@ import orderByAge, { TData } from "./turing-challenges/age-ordering";
 // ];
 
 // console.log(isValidSudoku(board1));
-
-const exData: TData = [
-  ["Frank", 33],
-  ["Stacy", 15],
-  ["Juan", 24],
-  ["Dom", 32],
-  ["Steve", 24],
-  ["Jill", 24],
-];
-
-orderByAge(exData);
