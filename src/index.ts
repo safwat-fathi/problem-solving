@@ -21,7 +21,6 @@ const person2 = new Person("Luna", 500);
 
 const chase = new Bank("JP Morgan Chase");
 const wells_fargo = new Bank("Wells Fargo");
-const awells_fargo = new Bank("Wells Fargo");
 
 console.log(chase.open_account(person1));
 console.log(wells_fargo.open_account(person1));

@@ -7,11 +7,32 @@ type IAccount = IPerson & {
   balance: number;
 };
 
-export class Person implements IPerson {
+export class Persons {
+  private _persons: string[] = [];
+
+  public add_person(name: string) {
+    // Check if the bank name already exists
+    if (this._person_exists(name)) {
+      throw new Error(`Person with name ${name} already exists.`);
+    }
+
+    this._persons.push(name);
+  }
+
+  private _person_exists(name: string) {
+    return this._persons.findIndex(personName => name === personName) > -1;
+  }
+}
+
+const persons = new Persons();
+
+export class Person {
   name: string;
   cash: number;
 
   constructor(n: string, c: number) {
+    persons.add_person(n);
+
     this.name = n;
     this.cash = c;
 
@@ -19,17 +40,24 @@ export class Person implements IPerson {
   }
 }
 
-// class Banks {
-//   protected _banks: string[] = [];
+class Banks {
+  private _banks: string[] = [];
 
-//   protected _add_bank(b: string) {
-//     this._banks.push(b);
-//   }
+  public add_bank(name: string) {
+    // Check if the bank name already exists
+    if (this._bank_exists(name)) {
+      throw new Error(`Bank with name ${name} already exists.`);
+    }
 
-//   protected _bank_exist(name: string) {
-//     return this._banks.findIndex(bankName => name === bankName) > -1;
-//   }
-// }
+    this._banks.push(name);
+  }
+
+  private _bank_exists(name: string) {
+    return this._banks.findIndex(bankName => name === bankName) > -1;
+  }
+}
+
+const banks = new Banks();
 
 export class Bank {
   name: string;
@@ -37,7 +65,7 @@ export class Bank {
   private _accounts: IAccount[] = [];
 
   constructor(n: string) {
-    // if (this._bank_exist(n)) throw `Bank already exist`;
+    banks.add_bank(n);
 
     this.name = n;
 
