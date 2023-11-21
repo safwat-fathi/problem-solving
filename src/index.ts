@@ -1,6 +1,6 @@
 // import isValidSudoku from "./leetcode/Arrays/valid-sudoku";
 
-import { Bank, Person } from "./turing-challenges/monopoly-bank";
+import { PatternGenerator } from "./turing-challenges/pattern-generator";
 
 // const board1 = [
 //   ["5", "3", ".", ".", "7", ".", ".", ".", "."],
@@ -15,3 +15,19 @@ import { Bank, Person } from "./turing-challenges/monopoly-bank";
 // ];
 
 // console.log(isValidSudoku(board1));
+
+type TPatternChars = "." | "#";
+
+const h: Record<TPatternChars, RegExp> = {
+  ".": /^[A-Z]+/,
+  "#": /^[0-9]+/,
+};
+
+let valid = true;
+
+const regexStr = ".#.";
+const chars = "A3B";
+
+const pg = new PatternGenerator();
+
+console.log(pg.verify(chars, regexStr));
