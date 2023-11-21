@@ -15,21 +15,3 @@ import { Bank, Person } from "./turing-challenges/monopoly-bank";
 // ];
 
 // console.log(isValidSudoku(board1));
-
-const person1 = new Person("Jake", 1000);
-const person2 = new Person("Luna", 500);
-
-const chase = new Bank("JP Morgan Chase");
-const wells_fargo = new Bank("Wells Fargo");
-
-console.log(chase.open_account(person1));
-console.log(wells_fargo.open_account(person1));
-console.log(chase.deposit(person1, 1000));
-console.log(chase.withdrawal(person1, 250));
-// console.log(chase.withdrawal(person1, 25000));
-
-console.log(chase.transfer(person1, wells_fargo, 250));
-console.log(chase.transfer(person2, wells_fargo, 250));
-// console.log(chase.transfer(person1, wells_fargo, 25000));
-console.log(chase.total_cash());
-console.log(wells_fargo.total_cash());

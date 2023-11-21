@@ -1,3 +1,25 @@
+// github.com/turingschool-examples/challenges/blob/master/monopoly_bank.markdown
+
+// const person1 = new Person("Jake", 1000);
+// const person2 = new Person("Luna", 500);
+// // const person2q = new Person("Luna", 500);
+
+// const chase = new Bank("JP Morgan Chase");
+// const wells_fargo = new Bank("Wells Fargo");
+// // const wells_fargoa = new Bank("Wells Fargo");
+
+// console.log(chase.open_account(person1));
+// console.log(wells_fargo.open_account(person1));
+// console.log(chase.deposit(person1, 1000));
+// console.log(chase.withdrawal(person1, 250));
+// // console.log(chase.withdrawal(person1, 25000));
+
+// console.log(chase.transfer(person1, wells_fargo, 250));
+// console.log(chase.transfer(person2, wells_fargo, 250));
+// // console.log(chase.transfer(person1, wells_fargo, 25000));
+// console.log(chase.total_cash());
+// console.log(wells_fargo.total_cash());
+
 type IPerson = {
   name: string;
   cash: number;
@@ -24,13 +46,25 @@ export class Persons {
   }
 }
 
-const persons = new Persons();
+class PersonsSingleton {
+  private static _instance: Persons;
+
+  static getInstance() {
+    if (!PersonsSingleton._instance) {
+      PersonsSingleton._instance = new Persons();
+    }
+
+    return PersonsSingleton._instance;
+  }
+}
 
 export class Person {
   name: string;
   cash: number;
 
   constructor(n: string, c: number) {
+    const persons = PersonsSingleton.getInstance();
+
     persons.add_person(n);
 
     this.name = n;
@@ -57,7 +91,19 @@ class Banks {
   }
 }
 
-const banks = new Banks();
+class BanksSingleton {
+  private static _instance: Banks;
+
+  private constructor() {}
+
+  static getInstance() {
+    if (!BanksSingleton._instance) {
+      BanksSingleton._instance = new Banks();
+    }
+
+    return BanksSingleton._instance;
+  }
+}
 
 export class Bank {
   name: string;
@@ -65,6 +111,8 @@ export class Bank {
   private _accounts: IAccount[] = [];
 
   constructor(n: string) {
+    const banks = BanksSingleton.getInstance();
+
     banks.add_bank(n);
 
     this.name = n;
