@@ -17,9 +17,8 @@ export const validWords = (s: string, k: string[]) => {
     for (let j = 0; j < word.length; j++) {
       const character = word[j];
 
-      if (s.includes(character)) {
-        charsValid++;
-      } else break;
+      if (s.includes(character)) charsValid++;
+      else break;
     }
 
     if (charsValid === word.length) wordsValid++;
