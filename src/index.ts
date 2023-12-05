@@ -1,6 +1,6 @@
 // import isValidSudoku from "./leetcode/Arrays/valid-sudoku";
 
-import { PatternGenerator } from "./turing-challenges/pattern-generator";
+// import { PatternGenerator } from "./turing-challenges/pattern-generator";
 
 // const board1 = [
 //   ["5", "3", ".", ".", "7", ".", ".", ".", "."],
@@ -16,18 +16,18 @@ import { PatternGenerator } from "./turing-challenges/pattern-generator";
 
 // console.log(isValidSudoku(board1));
 
-type TPatternChars = "." | "#";
+// type TPatternChars = "." | "#";
 
-const h: Record<TPatternChars, RegExp> = {
-  ".": /^[A-Z]+/,
-  "#": /^[0-9]+/,
-};
+// const h: Record<TPatternChars, RegExp> = {
+//   ".": /^[A-Z]+/,
+//   "#": /^[0-9]+/,
+// };
 
-let valid = true;
+// let valid = true;
 
-const regexStr = ".#.";
-const chars = "A3B";
+// const regexStr = ".#.";
+// const chars = "A3B";
 
-const pg = new PatternGenerator();
+// const pg = new PatternGenerator();
 
-console.log(pg.verify(chars, regexStr));
+// console.log(pg.verify(chars, regexStr));
