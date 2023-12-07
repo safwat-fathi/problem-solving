@@ -31,3 +31,8 @@
 // const pg = new PatternGenerator();
 
 // console.log(pg.verify(chars, regexStr));
+
+const arr: TNonEmptyArray<string> = ["s"];
+const arr2: TReadOnlyArray<string> = ["s"];
+const arr3: TFixedThreeLengthArray<string> = [];
+const arr4: TFixedLengthArray<number, 2> = [1, 1];

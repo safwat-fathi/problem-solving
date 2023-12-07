@@ -1,3 +1,5 @@
+// * https://leetcode.com/problems/count-of-matches-in-tournament/
+
 export const numberOfMatches = (n: number): number => {
   let teams = n;
   let matches = 0;
