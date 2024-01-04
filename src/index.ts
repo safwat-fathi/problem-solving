@@ -1,6 +1,6 @@
 // import { lengthOfLongestSubstring } from "./leetcode/HashMaps/*longest-substring-without-repeating-characters";
 
-import { maxProfit } from "./leetcode/*Arrays/best-time-to-buy-and-sell-stock";
+import { maxSlidingWindow } from "./leetcode/*Arrays/sliding-window-maximum";
 
 // const s1 = "abcabcbb";
 // const s2 = "bbbbb";
@@ -11,8 +11,9 @@ import { maxProfit } from "./leetcode/*Arrays/best-time-to-buy-and-sell-stock";
 
 // console.log(lengthOfLongestSubstring(s6));
 // lengthOfLongestSubstring(s1);
-const p1 = [2, 1, 2, 1, 0, 1, 2]; // 2
-const p2 = [7, 1, 5, 3, 6, 4]; // 5
-const p3 = [7, 6, 4, 3, 1]; // 0
 
-console.log(maxProfit(p3));
+const n1 = [1, 3, -1, -3, 5, 3, 6, 7];
+const n2 = [1, 2, 3, 4, 5];
+const n3 = [1];
+
+console.log(maxSlidingWindow(n1, 3));
