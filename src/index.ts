@@ -1,7 +1,7 @@
 // import { lengthOfLongestSubstring } from "./leetcode/HashMaps/*longest-substring-without-repeating-characters";
 
 import { numIslands } from "./leetcode/*Arrays/*2D-array/*number-of-islands";
-import { maxSlidingWindow } from "./leetcode/*Arrays/sliding-window-maximum";
+import { Queue } from "./leetcode/Queue/queue";
 
 // const s1 = "abcabcbb";
 // const s2 = "bbbbb";

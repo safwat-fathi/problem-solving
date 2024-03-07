@@ -1,7 +1,7 @@
 // https://leetcode.com/problems/sliding-window-maximum/
 
 export const maxSlidingWindow = (nums: number[], k: number): number[] => {
-  const maxNums = [];
+  const result = [];
 
   for (let i = 0; i < nums.length - k + 1; i++) {
     const num = nums[i];
@@ -19,8 +19,8 @@ export const maxSlidingWindow = (nums: number[], k: number): number[] => {
       nextIndex++;
     }
 
-    maxNums.push(currMax);
+    result.push(currMax);
   }
 
-  return maxNums;
+  return result;
 };
